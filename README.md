@@ -6,3 +6,7 @@
 
 
 后端代码在releases中
+
+
+<img width="2202" height="1218" alt="image" src="https://github.com/user-attachments/assets/f3a98e74-0abd-4ba1-8aa1-51e9c1226afa" />
+ai问答页面展示
