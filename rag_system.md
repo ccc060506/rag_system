@@ -32,7 +32,8 @@ ai    langchain4j框架
 	1: 需要把自己的aliyun OSS  Bucket设置为公共读写，才可上传文件
 
 	2: RAM 角色（Role）的权限配置**做相关处理
-	进入 RAM 控制台 -> 用户 -> 找到你的用户 -> **添加权限** 
+		后端代码：String roleArn = "acs:ram::1060859887876794:role/ossuploadrole";替换成https://ram.console.aliyun.com/roles -> 角色 -> 基本信息 ARN
+	进入 RAM 控制台 -> 用户 -> 找到你的用户 -> **添加权限**
 	-> 添加AliyunSTSAssumeRoleAccess。
 		检查：
 		进入 RAM 控制台 -> 角色 -> 点击 `ossuploadrole` -> **信任策略**。
