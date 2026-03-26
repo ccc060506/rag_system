@@ -72,3 +72,8 @@ ai    langchain4j框架
 		4.4. 点击 **确定** 保存。
 
 
+
+<img width="800" height="508" alt="image" src="https://github.com/user-attachments/assets/8eb4e424-5d35-4325-a5ae-14a7206cf1c0" />
+出现这个错误请关闭 Node.js 进程，
+	重新执行		npm install @vitejs/plugin-vue --save-dev
+				npm run dev
