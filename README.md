@@ -3,3 +3,6 @@
 
 
 运行出现问题请查看 main 分支下的rag-system.md
+
+
+后端代码在releases中
