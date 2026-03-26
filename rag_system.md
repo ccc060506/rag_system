@@ -2,11 +2,11 @@
 本项目是一个ai对话的支持个人上传内容的检索增强项目
 前端使用    Vue3+Element-plus
 后端    java21+redis+mysql
-ai    langchain4j框架
+ai    langchain4j框架+redis stack
 		对话模型使用   deepseek
 		数据向量化使用的 dashscope(千问)
 
-需要在后端配置文件 application.yaml中
+需要在后端配置文件 application.yaml中		redis要使用redis-stack
 	spring:  
 		datasource:填写自己的数据库内容
 		data:
