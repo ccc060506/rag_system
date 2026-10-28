@@ -1,7 +1,8 @@
 # RAG System
 
 <img width="758" height="488" alt="image" src="https://github.com/user-attachments/assets/f545c38b-61d4-4e09-be3b-710e63a9cf46" />
-![Uploading image.png…]()
+<img width="892" height="485" alt="image" src="https://github.com/user-attachments/assets/f7ecce85-c5b1-45c6-a47f-c9664513e12f" />
+
 
 
 前后端分离的企业知识库与 RAG 问答系统。
