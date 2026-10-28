@@ -1,0 +1,84 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:RAG_system}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 8        # 连接池最大连接数
+          max-idle: 8          # 连接池中的最大空闲连接
+          min-idle: 0          # 连接池中的最小空闲连接
+  ai:
+    openai:
+      # DeepSeek API Key，通过环境变量注入
+      api-key: ${DEEPSEEK_API_KEY:}
+      base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+      chat:
+        options:
+          model: deepseek-chat
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/com/ragsystem/**/mapper/*.xml
+  type-aliases-package: com.ragsystem.module.**.domain.entity
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: ${SERVER_PORT:8080}
+jwt:
+  secret: ${JWT_SECRET:}
+  expiration: 7200000   # 2 小时（毫秒），需与 Redis Token TTL 保持一致
+aliyun:
+  dashscope:
+    api-key: ${DASHSCOPE_API_KEY:}
+    region: ${DASHSCOPE_REGION:cn-beijing}
+    base-url: ${DASHSCOPE_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1}
+  oss:
+    endpoint: ${ALIYUN_OSS_ENDPOINT:https://oss-cn-beijing.aliyuncs.com}
+    accessKeyId: ${ALIYUN_OSS_ACCESS_KEY_ID:}
+    accessKeySecret: ${ALIYUN_OSS_ACCESS_KEY_SECRET:}
+    bucketName: ${ALIYUN_OSS_BUCKET_NAME:}
+  sts:
+    role-arn: ${ALIYUN_STS_ROLE_ARN:}
+# RAG
+rag:
+  security:
+    # 用于加密用户 API Key，生产环境务必通过 DATA_ENCRYPTION_KEY 注入
+    data-key: ${DATA_ENCRYPTION_KEY:}
+  embedding:
+    # 向量化模型；维度会在启动时自动探测，不需要手写
+    model: ${RAG_EMBEDDING_MODEL:text-embedding-v1}
+  ai:
+    proxy:
+      # 留空表示不使用代理；例如本地 Clash 可设为 127.0.0.1:7897
+      host: ${AI_PROXY_HOST:}
+      port: ${AI_PROXY_PORT:0}
+  redis:
+    index-name: "rag-embeddings"
+    prefix: "rag:"
+    # 0 = 自动探测；仅当启动时无法访问 embedding 接口时才需要手填作为兜底
+    dimension: ${RAG_REDIS_DIMENSION:0}
+  document:
+    upload-path: ./uploads
+    chunk-size: 500
+    chunk-overlap: 50
+  retrieval:
+    top-k: 5
+    similarity-threshold: 0.75
+
+# 本地存储配置（测试用）
+local:
+  oss:
+    base-path: ${LOCAL_OSS_BASE_PATH:/opt/rag-files/}            # 服务器本地存储路径
+    access-prefix: ${LOCAL_OSS_ACCESS_PREFIX:http://localhost:8080/files/} # 前端访问前缀

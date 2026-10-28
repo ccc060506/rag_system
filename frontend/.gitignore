@@ -1,0 +1,4 @@
+node_modules
+
+# Hallmark audit records
+.hallmark/

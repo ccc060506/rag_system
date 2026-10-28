@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ragsystem.module.userCenter.mapper.UserConfigMapper">
+    <update id="updateUsage">
+        UPDATE user_config
+        SET used_token_quota = used_token_quota + #{totalTokens}
+        WHERE user_id = #{userId}
+    </update>
+</mapper>

@@ -1,0 +1,13 @@
+.env
+application-local.yaml
+**/application-local.yaml
+**/node_modules/
+**/dist/
+**/target/
+.idea/
+.hallmark/
+uploads/
+logs/
+*.log
+.DS_Store
+Thumbs.db

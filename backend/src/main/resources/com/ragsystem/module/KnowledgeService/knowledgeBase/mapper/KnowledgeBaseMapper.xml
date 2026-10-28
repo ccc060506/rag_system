@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ragsystem.module.KnowledgeService.knowledgeBase.mapper.KnowledgeBaseMapper">
+
+    <insert id="insertToKnowledgeBase"
+            parameterType="com.ragsystem.module.KnowledgeService.knowledgeBase.domain.entity.KnowledgeFile"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into knowledge_file
+            (file_name, file_type, file_url, file_size, owner_id, is_public, upload_time)
+        values (
+                   #{fileName},
+                   #{fileType},
+                   #{fileUrl},
+                   #{fileSize},
+                   #{ownerId},
+                   #{isPublic},
+                   #{uploadTime}
+               )
+    </insert>
+
+</mapper>
