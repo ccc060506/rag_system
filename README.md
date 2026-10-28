@@ -1,8 +1,6 @@
 <img width="1060" height="684" alt="微信图片_20261026202529_280_19" src="https://github.com/user-attachments/assets/37a4a55e-ad13-401e-bee4-3bb20d26c365" /># RAG System
 
 <img width="758" height="488" alt="image" src="https://github.com/user-attachments/assets/f545c38b-61d4-4e09-be3b-710e63a9cf46" />
-![Uploading image.png…]()
-
 
 
 前后端分离的企业知识库与 RAG 问答系统。
